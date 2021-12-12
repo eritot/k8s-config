@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: k8stest
+  namespace: default
+
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`k8stest.74.220.30.180.nip.io`)
+      kind: Rule
+      services:
+        - name: k8stest
+          port: 80
