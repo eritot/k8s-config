@@ -1,17 +1,23 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8stest
+  name: k8stest-deployment
 spec:
+  selector:
+    matchLabels:
+      app: k8stest
   replicas: 1
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
-        label-key : k8test-label
+        app: k8stest
     spec:
       containers:
-        - name: k8stest-container
-          image: ernom/k8stest:v1.0.0
-          imagePullPolicy: Always
-          ports:
-          - containerPort: 80
+      - name: k8stest
+        image: ernom/k8stest:v1.0.0
+        ports:
+        - containerPort: 80
