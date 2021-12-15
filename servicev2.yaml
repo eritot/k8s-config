@@ -4,6 +4,6 @@ metadata:
   name: k8stest-service
 spec:
   selector:
-    name: k8stest
+    app: k8stest
   ports:
-    port: 80
+    - port: 80

@@ -1,7 +1,10 @@
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: k8stest-ingress
+  anotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
     - host: k8stest.74.220.28.201.nip.io
