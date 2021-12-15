@@ -2,11 +2,13 @@ k8s-config
 
 https://refactored.xyz/k3s-traefik-2/
 
-curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
+curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
+
+# Install helm
 
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 
-# Install helm
+
 chmod 700 get_helm.sh
 
 ./get_helm.sh
