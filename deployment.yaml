@@ -2,10 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: k8stest-deployment
+  namespace: k8stest
 spec:
   selector:
     matchLabels:
-      app: k8stest
+      app: k8stest-frontend
   replicas: 1
   progressDeadlineSeconds: 600
   revisionHistoryLimit: 2
@@ -14,10 +15,10 @@ spec:
   template:
     metadata:
       labels:
-        app: k8stest
+        app: k8stest-frontend
     spec:
       containers:
-      - name: k8stest
+      - name: k8stest-frontend
         image: ernom/k8stest:v1.0.0
         ports:
         - containerPort: 80

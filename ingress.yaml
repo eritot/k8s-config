@@ -1,15 +1,17 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: k8stest
+  name: k8stest-service
   namespace: default
 
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
-    - match: Host(`k8stest.74.220.30.180.nip.io`)
+    - match: Host(`k8stest.74.220.25.114.nip.io`)
       kind: Rule
       services:
-        - name: k8stest
+        - name: k8stest-service
           port: 80
+  tls:
+    certResolver: self-signed-issuer
