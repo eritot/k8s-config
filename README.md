@@ -15,18 +15,6 @@ chmod 700 get_helm.sh
 
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 
-# Install Traefik2
-helm repo add traefik https://helm.traefik.io/traefik
-
-helm repo update
-
-helm install traefik traefik/traefik
-
-# Verify Traefik2 install
-kubectl get pods --selector "app.kubernetes.io/name=traefik"
-
-kubectl get svc --selector "app.kubernetes.io/name=traefik"
-
 
 minotoring:
 uptime kuma
