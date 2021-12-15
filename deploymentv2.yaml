@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8stest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8stest
+  template:
+    metadata:
+      labels:
+        app: k8stest
+    spec:
+      containers:
+      - name: k8stest
+        image: ernom/k8stest:v1.0.0
+        ports:
+        - containerPort: 80

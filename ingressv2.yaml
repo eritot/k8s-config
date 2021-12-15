@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Ingress
+metadata:
+  name: k8stest-ingress
+spec:
+  rules:
+    - host: k8stest.74.220.28.201.nip.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: k8stest-service
+              servicePort: 80
+  tls:
+    - hosts:
+        - k8stest.74.220.28.201.nip.io
