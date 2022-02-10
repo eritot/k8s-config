@@ -16,7 +16,7 @@ chmod 700 get_helm.sh
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 
 
-minotoring:
+monitoring:
 uptime kuma
 
 file sharing:
